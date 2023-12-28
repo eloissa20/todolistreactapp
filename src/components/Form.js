@@ -10,14 +10,16 @@ const Form = ({ todos, setTodos, editTodo, setEditTodo }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-
+  
     if (isEditing && selectedTodo) {
-      const updatedTodo = {
-        id: selectedTodo.id,
-        title: editInput,
-        description: editDescription,
-        completed: selectedTodo.completed,
-      };
+        const updatedTodo = {
+          id: selectedTodo.id,
+          title: editInput,
+          description: editDescription,
+          completed: selectedTodo.completed,
+          created: selectedTodo.created,
+          updated: new Date(), // Add this line to record the update time
+     };
       setTodos(todos.map((todo) => (todo.id === selectedTodo.id ? updatedTodo : todo)));
       setEditTodo('');
       setEditInput('');
@@ -25,12 +27,19 @@ const Form = ({ todos, setTodos, editTodo, setEditTodo }) => {
       setIsEditing(false);
       setSelectedTodo(null);
     } else {
-      setTodos([...todos, { id: Date.now(), title: input, description: description, completed: false }]);
+      setTodos([...todos, { 
+        id: Date.now(), 
+        title: input, 
+        description: description, 
+        completed: false, 
+        created: new Date(), 
+        updated: null // Initial value for new task
+      }]);
       setInput('');
       setDescription('');
     }
   };
-
+  
   const onInputChange = (event) => {
     setInput(event.target.value);
   };

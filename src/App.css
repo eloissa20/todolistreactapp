@@ -218,3 +218,18 @@ button:focus {
   background-color: #007bff;
   color: white;
 }
+
+.todo-created,
+.todo-completed,
+.todo-updated {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.todo-dates {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
