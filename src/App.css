@@ -1,38 +1,214 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.container {
+  background-color: linear-gradient(to right bottom, pink, #c89666);
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.app-wrapper {
+  background-color: rgb(148, 94, 94);
+  min-width: 450px;
+  min-height: 650px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 3px 6px 40px #31281f;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  color: aliceblue;
+  text-align: center;
+  margin: 30px 0;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-input {
+  outline: none;
+  width: 260px;
+  padding: 15px;
+  flex-grow: 1;
+  margin-right: 10px; 
+  font-size: 20px;
+  color: white;
+  background-color: blueviolet;
+  border: 1px solid #339adf;
+  border-radius: 10px;
+}
+
+.button-add {
+  width: 70px;
+  padding: 15px 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #c89666;
+  cursor: pointer;
+}
+
+.list-item {
+  display: flex;
+  align-items: center; /* Added to align items vertically */
+  margin: 20px 0;
+  border: solid #339adf;
+  padding: 10px;
+}
+
+.button-complete,
+.button-delete,
+.button-edit {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 28px;
+  border-radius: 50%;
+}
+
+.button-complete {
+  color: orange;
+  margin-right: 10px;
+}
+
+.button-edit {
+  color: brown;
+  margin-right: 10px;
+}
+
+.button-delete {
+  color: bisque;
+}
+
+.complete {
+  text-decoration-style: solid;
+  text-decoration-line: line-through;
+  text-decoration-color: aquamarine;
+  opacity: 0.6;
+}
+
+.list {
+  width: 220px;
+  background-color: black;
+  border: none;
+  color: #ccc;
+  font-size: 20px;
+  padding-left: 10px;
+  margin-right: 15px;
+}
+
+.checkbox-complete {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.checkbox-complete:checked {
+  background-color: orange; /* Change this to match your design */
+  border-color: orange; /* Change this to match your design */
+}
+
+.material-icons {
+  font-size: 24px; /* Adjust the size as needed */
+  color: #31281f; /* Adjusted to match the general color theme */
+}
+
+.button-edit .material-icons {
+  color: brown; /* Specific style for the edit icon */
+}
+
+.button-delete .material-icons {
+  color: bisque; /* Specific style for the delete icon */
+}
+
+.task-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.button-add {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20; /* Higher than other elements */
+}
+
+.popup-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 30;
+}
+
+.popup-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.button-update,
+.button-cancel {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-update {
+  background-color: #4CAF50; /* Green */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button-cancel {
+  background-color: #f44336; /* Red */
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+input:focus,
+button:focus {
+  outline: none;
 }
