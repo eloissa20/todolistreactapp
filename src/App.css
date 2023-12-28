@@ -1,10 +1,15 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
 }
 
 .container {
-  background-color: linear-gradient(to right bottom, pink, #c89666);
+  background: linear-gradient(to right bottom, #ffafbd, #ffc3a0);
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -13,172 +18,136 @@
 }
 
 .app-wrapper {
-  background-color: rgb(148, 94, 94);
-  min-width: 450px;
+  background-color: #fff;
+  width: 700px; 
   min-height: 650px;
   padding: 30px;
-  box-sizing: border-box;
   border-radius: 10px;
-  box-shadow: 3px 6px 40px #31281f;
-  margin-bottom: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
-  color: aliceblue;
+  color: #333;
   text-align: center;
-  margin: 30px 0;
+  margin-bottom: 20px;
 }
 
 form {
-  width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Spacing between elements */
+}
+
+.task-input,
+textarea.task-input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
 }
 
 .task-input {
-  outline: none;
-  width: 260px;
-  padding: 15px;
-  flex-grow: 1;
-  margin-right: 10px; 
-  font-size: 20px;
-  color: white;
-  background-color: blueviolet;
-  border: 1px solid #339adf;
-  border-radius: 10px;
+  flex: 1; /* This makes the inputs flexible in size */
+}
+
+textarea.task-input {
+  resize: none;
+  height: 80px;
 }
 
 .button-add {
-  width: 70px;
-  padding: 15px 15px;
-  font-size: 20px;
-  border-radius: 10px;
-  border: 0;
-  background-color: #c89666;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  white-space: nowrap;
   cursor: pointer;
 }
 
 .list-item {
   display: flex;
-  align-items: center; /* Added to align items vertically */
-  margin: 20px 0;
-  border: solid #339adf;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f9f9f9;
   padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.button-complete,
-.button-delete,
-.button-edit {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background-color: transparent;
-  font-size: 28px;
-  border-radius: 50%;
-}
-
-.button-complete {
-  color: orange;
+.todo-content {
+  flex-grow: 1;
+  margin-left: 15px;
   margin-right: 10px;
 }
 
-.button-edit {
-  color: brown;
-  margin-right: 10px;
-}
-
-.button-delete {
-  color: bisque;
-}
-
-.complete {
-  text-decoration-style: solid;
-  text-decoration-line: line-through;
-  text-decoration-color: aquamarine;
-  opacity: 0.6;
-}
-
-.list {
-  width: 220px;
-  background-color: black;
+.todo-title {
+  font-size: 16px;
   border: none;
-  color: #ccc;
-  font-size: 20px;
-  padding-left: 10px;
+  background: transparent;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.todo-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.list-item input[type="checkbox"] {
   margin-right: 15px;
 }
 
-.checkbox-complete {
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
+.list-item input[type="text"] {
+  flex: 1;
   margin-right: 10px;
-  vertical-align: middle;
-}
-
-.checkbox-complete:checked {
-  background-color: orange; /* Change this to match your design */
-  border-color: orange; /* Change this to match your design */
-}
-
-.material-icons {
-  font-size: 24px; /* Adjust the size as needed */
-  color: #31281f; /* Adjusted to match the general color theme */
-}
-
-.button-edit .material-icons {
-  color: brown; /* Specific style for the edit icon */
-}
-
-.button-delete .material-icons {
-  color: bisque; /* Specific style for the delete icon */
-}
-
-.task-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.button-add {
-  background-color: #007bff;
-  color: #fff;
+  padding: 5px;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+  background: transparent;
+  color: #333;
 }
+
+.list-item .material-icons {
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: #999;
+}
+
 .popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 20; /* Higher than other elements */
+  z-index: 10;
 }
 
 .popup-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 30;
-}
-
-.popup-container h3 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .popup-buttons {
@@ -193,22 +162,34 @@ form {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  color: white;
 }
 
 .button-update {
-  background-color: #4CAF50; /* Green */
-  color: white;
+  background-color: #28a745;
 }
 
 .button-cancel {
-  background-color: #f44336; /* Red */
-  color: white;
+  background-color: #dc3545;
 }
-
-
-
 
 input:focus,
 button:focus {
   outline: none;
+}
+
+
+@media (max-width: 800px) {
+  .app-wrapper {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .task-form {
+    flex-direction: column; /* Stack elements in a column on smaller screens */
+  }
+
+  .task-input,
+  .button-add {
+    width: 100%; /* Full width on smaller screens */
+  }
 }

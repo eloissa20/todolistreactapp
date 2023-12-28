@@ -3,23 +3,15 @@ import React from "react";
 const TodosList = ({ todos, setTodos, setEditTodo }) => {
 
     const handleComplete = (todo) => {
-        setTodos(
-            todos.map((item) => {
-                if (item.id === todo.id) {
-                    return { ...item, completed: !item.completed };
-                }
-                return item;
-            })
-        );
+        setTodos(todos.map(item => item.id === todo.id ? { ...item, completed: !item.completed } : item));
     };
 
-    const handleEdit = ({ id }) => {
-        const findTodo = todos.find((todo) => todo.id === id);
-        setEditTodo(findTodo);
+    const handleEdit = (todo) => {
+        setEditTodo(todo);
     };
 
-    const handleDelete = ({ id }) => {
-        setTodos(todos.filter((todo) => todo.id !== id));
+    const handleDelete = (todo) => {
+        setTodos(todos.filter(item => item.id !== todo.id));
     };
 
     return (
@@ -32,12 +24,18 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
                         checked={todo.completed}
                         onChange={() => handleComplete(todo)} 
                     />
-                    <input type="text" 
-                           value={todo.title} 
-                           className={`list ${todo.completed ? "complete" : ""}`}
-                           onChange={(event) => event.preventDefault()}
-                    />
-                    <div>
+                    <div className="todo-content">
+                        <input 
+                            type="text" 
+                            value={todo.title} 
+                            className={`todo-title ${todo.completed ? "complete" : ""}`}
+                            onChange={(e) => e.preventDefault()}
+                        />
+                        <p className={`todo-description ${todo.completed ? "complete" : ""}`}>
+                            {todo.description}
+                        </p>
+                    </div>
+                    <div className="todo-actions">
                         <button className="button-edit task-button" onClick={() => handleEdit(todo)}>
                             <span className="material-icons">edit</span>
                         </button>
