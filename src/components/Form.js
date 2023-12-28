@@ -18,7 +18,7 @@ const Form = ({ todos, setTodos, editTodo, setEditTodo }) => {
           description: editDescription,
           completed: selectedTodo.completed,
           created: selectedTodo.created,
-          updated: new Date(), // Add this line to record the update time
+          updated: new Date(),
      };
       setTodos(todos.map((todo) => (todo.id === selectedTodo.id ? updatedTodo : todo)));
       setEditTodo('');
@@ -33,7 +33,7 @@ const Form = ({ todos, setTodos, editTodo, setEditTodo }) => {
         description: description, 
         completed: false, 
         created: new Date(), 
-        updated: null // Initial value for new task
+        updated: null 
       }]);
       setInput('');
       setDescription('');
@@ -100,7 +100,7 @@ const Form = ({ todos, setTodos, editTodo, setEditTodo }) => {
                 Add
             </button>
         </form>
-      {isEditing && (
+        {isEditing && (
         <div className="popup-overlay">
           <div className="popup-container">
             <h3>Update Task</h3>

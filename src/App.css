@@ -26,11 +26,10 @@ body {
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.486);
 }
 
-
 .header h1 {
-  color: transparent; /* Make the text color transparent */
+  color: transparent;/
   background-image: linear-gradient(to right, #5B51D8, #b55fee, #e646a0, #ee6492, #FCAF45, #FFDC80);
-  -webkit-background-clip: text; /* Apply the background only to the text */
+  -webkit-background-clip: text;
   background-clip: text;
   text-align: center;
   margin-bottom: 20px;
@@ -45,9 +44,9 @@ form {
 
 .task-form {
   display: flex;
-  flex-direction: row; /* Align items in a row */
-  align-items: center; /* Align items vertically */
-  gap: 10px; /* Spacing between elements */
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 .task-input,
@@ -215,16 +214,16 @@ button:focus {
 
 @media (max-width: 800px) {
   .app-wrapper {
-    width: 90%; /* Adjust width for smaller screens */
+    width: 90%; 
   }
 
   .task-form {
-    flex-direction: column; /* Stack elements in a column on smaller screens */
+    flex-direction: column; 
   }
 
   .task-input,
   .button-add {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 }
 
@@ -254,7 +253,6 @@ button:focus {
   background-image: linear-gradient(to right, #EA1179, #5B51D8);
   color: white;
 }
-
 
 .todo-created,
 .todo-completed,

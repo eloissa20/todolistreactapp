@@ -11,7 +11,7 @@ const App = () => {
   const [activeTab, setActiveTab] = useState("ToDo");
 
   useEffect(() => {
-    console.log(todos); // Log the current state of todos
+    console.log(todos); 
   }, [todos]);
 
   const handleTabChange = (tab) => {
@@ -46,10 +46,10 @@ const App = () => {
         </div>
 
         <TodosList
-          todos={todos} // Pass the full todos array
+          todos={todos}
           setTodos={setTodos}
           setEditTodo={setEditTodo}
-          activeTab={activeTab} // Pass activeTab as a prop
+          activeTab={activeTab} 
         />
       </div>
     </div>

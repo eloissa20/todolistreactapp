@@ -8,7 +8,7 @@ const TodosList = ({ todos, setTodos, setEditTodo, activeTab }) => {
           ? { 
               ...item, 
               completed: !item.completed,
-              completedAt: !item.completed ? new Date() : null // Update completion time
+              completedAt: !item.completed ? new Date() : null
             }
           : item
       )
@@ -43,13 +43,12 @@ const TodosList = ({ todos, setTodos, setEditTodo, activeTab }) => {
               type="text"
               className={`todo-title ${todo.completed ? "complete" : ""}`}
               value={todo.title}
-              onChange={(e) => e.preventDefault()} // Prevent text editing for now
+              onChange={(e) => e.preventDefault()}
             />
             <p className={`todo-description ${todo.completed ? "complete" : ""}`}>
               {todo.description}
             </p>
           </div>
-
           <div className="todo-dates">
             {/* Display 'Created on' date and time */}
             <div className="todo-created">
@@ -68,8 +67,6 @@ const TodosList = ({ todos, setTodos, setEditTodo, activeTab }) => {
               </div>
             )}
           </div>
-         
-
           <div className="todo-actions">
             {!todo.completed && (
               <button
