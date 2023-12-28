@@ -83,18 +83,18 @@ const Form = ({ todos, setTodos, editTodo, setEditTodo }) => {
         <form onSubmit={onFormSubmit} className="task-form">
             <input
                 type="text"
-                placeholder="Enter a Title"
+                placeholder="Title:"
                 className="task-input"
                 value={input}
                 required
                 onChange={onInputChange}
             />
             <textarea
-                placeholder="Enter a Description"
+                placeholder="Description:"
                 className="task-input"
                 value={description}
                 onChange={onDescriptionChange}
-                style={{ height: '100px', resize: 'none' }}
+                style={{ height: '40px', resize: 'none' }}
             />
             <button className="button-add" type="submit">
                 Add
